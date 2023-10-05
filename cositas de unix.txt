@@ -1,0 +1,23 @@
+#include <stdio.h> esto para la salida de texto
+#include <unistd.h> esto para el fork
+
+int main() {
+	pid_t pid;
+	
+	if ((pid = fork()) == -1) {
+		printf("Error\n");
+		return 2;
+	} else if (pid == 0) {
+		printf("Soy el hijo %d y mi padre es %d\n", getpid(), getppid());
+		return 0;
+	} else {
+		printf("Soy el padre %d y mi hijo es %d\n", getppid(), pid);
+		sleep(1);
+	}
+	return 0;
+}
+
+para crearlo vi cosa.c
+para ejecutarlo 
+make cosa
+./cosa
