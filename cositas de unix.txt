@@ -46,3 +46,8 @@ echo $? indica como ha muerto el anterior proceso
 	
 	
 wait -> (int * p_estado) int * la dirección de memoria de un entero , en c (&variable)
+
+
+
+
+execl el 0 es para que sepa que es el final de los argumentos
