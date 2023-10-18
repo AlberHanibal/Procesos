@@ -15,9 +15,9 @@ int main() {
 		execl("/bin/ls", "ls", "hola", 0)
 		return 20; // retorno de error exit(20)
 	}
-	
 		printf("Soy el padre %d y mi hijo es %d\n", getppid(), pid);
 		//sleep(1);
+		
 		//para que el padre espere a la muerte de su primer hijo
 		pid_wait = wait(&estado_hijo);
 		if (pid_wait == -1) {
