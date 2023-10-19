@@ -3,6 +3,9 @@
 leer cadenas:
 #include <stdio.h>
 #include <string.h>
+#include <wait.h>
+#include <unistd.h>
+#include <stdlib.h>
 int main() {
 	char siguienteOrden;
 	while (1) {
@@ -12,7 +15,7 @@ int main() {
 		int estadoHijo;
 		printf("Dame una linea de ordenes: \n");
 		fgets(cadena, sizeof(cadena), stdin);
-		cadena[strlen() - 1] = 0;
+		cadena[strlen(cadena) - 1] = 0;
 		if ((pid = fork()) == -1) {
 			printf("Error\n");
 			return 2;

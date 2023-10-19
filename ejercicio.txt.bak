@@ -4,15 +4,30 @@ leer cadenas:
 #include <stdio.h>
 #include <string.h>
 int main() {
-	char cadena [1000];
-	printf("Dame una linea de ordenes: \n");
-	fgets(cadena, sizeof(cadena), stdin);
-	printf(cadena[strlen() - 1]) = 0;
-	
-	// crear un hijo
-	// convertirse en una shell con bash -c
-	
-	
+	char siguienteOrden;
+	while (1) {
+		char cadena [1000];
+		pid_t pid;
+		pid_t pid_wait;
+		int estadoHijo;
+		printf("Dame una linea de ordenes: \n");
+		fgets(cadena, sizeof(cadena), stdin);
+		cadena[strlen(cadena) - 1] = 0;
+		if ((pid = fork()) == -1) {
+			printf("Error\n");
+			return 2;
+		} else if (pid == 0) {
+			execl("/bin/bash", "bash", "-c", cadena, 0)
+			return 20;
+		}
+		pid_wait = wait(&estadoHijo);
+		//sleep(2);
+		printf("¿Quiere dar otra orden? (s/n)\n");
+		scanf("%c", &siguienteOrden);
+		if (siguienteOrden != 's') {
+			break;
+		}
+	}
 	return 0;
 }
 
