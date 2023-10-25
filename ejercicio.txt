@@ -1,6 +1,5 @@
 //programa que ejecute una serie de órdenes
 
-leer cadenas:
 #include <stdio.h>
 #include <string.h>
 #include <wait.h>
@@ -20,14 +19,14 @@ int main() {
 			printf("Error\n");
 			return 2;
 		} else if (pid == 0) {
-			execl("/bin/bash", "bash", "-c", cadena, 0)
+			execl("/bin/bash", "bash", "-c", cadena, '\0');
 			return 20;
 		}
 		pid_wait = wait(&estadoHijo);
 		printf("¿Quiere dar otra orden? (s/n)\n");
 		fgets(siguienteOrden, sizeof(siguienteOrden), stdin);
 		siguienteOrden[strlen(siguienteOrden) - 1] = '\n';
-
+		// puede que haya que poner en la comparación "s\n"
 	} while (strcmp(siguienteOrden, "s") == 0);
 	return 0;
 }

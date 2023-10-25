@@ -1,33 +1,33 @@
 //programa que ejecute una serie de órdenes
 
-leer cadenas:
 #include <stdio.h>
 #include <string.h>
+#include <wait.h>
+#include <unistd.h>
+#include <stdlib.h>
 int main() {
-	char siguienteOrden;
-	while (1) {
+	char siguienteOrden [5];
+	do {
 		char cadena [1000];
 		pid_t pid;
 		pid_t pid_wait;
 		int estadoHijo;
 		printf("Dame una linea de ordenes: \n");
 		fgets(cadena, sizeof(cadena), stdin);
-		cadena[strlen(cadena) - 1] = 0;
+		cadena[strlen(cadena) - 1] = '\0';
 		if ((pid = fork()) == -1) {
 			printf("Error\n");
 			return 2;
 		} else if (pid == 0) {
-			execl("/bin/bash", "bash", "-c", cadena, 0)
+			execl("/bin/bash", "bash", "-c", cadena, '\0')
 			return 20;
 		}
 		pid_wait = wait(&estadoHijo);
-		//sleep(2);
 		printf("¿Quiere dar otra orden? (s/n)\n");
-		scanf("%c", &siguienteOrden);
-		if (siguienteOrden != 's') {
-			break;
-		}
-	}
+		fgets(siguienteOrden, sizeof(siguienteOrden), stdin);
+		siguienteOrden[strlen(siguienteOrden) - 1] = '\n';
+		// puede que haya que poner en la comparación "s\n"
+	} while (strcmp(siguienteOrden, "s") == 0);
 	return 0;
 }
 
