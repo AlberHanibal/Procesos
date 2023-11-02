@@ -24,10 +24,11 @@ int main() {
 		}
 		pid_wait = wait(&estadoHijo);
 		printf("¿Quiere dar otra orden? (s/n)\n");
+		
 		fgets(siguienteOrden, sizeof(siguienteOrden), stdin);
-		siguienteOrden[strlen(siguienteOrden) - 1] = '\n';
+		// siguienteOrden[strlen(siguienteOrden) - 1] = '\n';
 		// puede que haya que poner en la comparación "s\n"
-	} while (strcmp(siguienteOrden, "s") == 0);
+	} while (strcmp(siguienteOrden, "s\n") == 0);
 	return 0;
 }
 

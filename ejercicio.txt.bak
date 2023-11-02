@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 int main() {
-	char siguienteOrden [5];
+	
 	do {
 		char cadena [1000];
 		pid_t pid;
@@ -19,11 +19,12 @@ int main() {
 			printf("Error\n");
 			return 2;
 		} else if (pid == 0) {
-			execl("/bin/bash", "bash", "-c", cadena, '\0')
+			execl("/bin/bash", "bash", "-c", cadena, '\0');
 			return 20;
 		}
 		pid_wait = wait(&estadoHijo);
 		printf("¿Quiere dar otra orden? (s/n)\n");
+		char siguienteOrden [5];
 		fgets(siguienteOrden, sizeof(siguienteOrden), stdin);
 		siguienteOrden[strlen(siguienteOrden) - 1] = '\n';
 		// puede que haya que poner en la comparación "s\n"
