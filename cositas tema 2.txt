@@ -1,0 +1,28 @@
+usuario real y usuario efectivo
+
+pause
+ps -ef|grep nombreEjecutable para ver el proceso que tiene ese nombre
+kill -l para mostrar todas las señales
+
+include <stdio.h>
+include <signal.h>
+include <unistd.h>
+include <stdlib.h> // para el exit
+
+void manejador_SIGINT(int senial){
+	// cambia a manejador por defecto, en la siguiente se cambia a ignorarla
+	signal(SIGINT, SIG_IGN); // se queda en próximas ejecuciones de la señal SIGINT
+	printf("No me molestes... \n");
+	signal(SIGINT, manejador_SIGINT); // para el próximo SIGINT se ejecute el manejador
+}
+
+//el manejador_SIGTERM terminaría con un exit(0)
+
+int main() {
+	signal(SIGINT, manejador_SIGINT);
+	alarm(5);
+	while(1)
+		pause();
+	return 0;
+	
+}
