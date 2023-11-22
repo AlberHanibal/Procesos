@@ -20,6 +20,7 @@ void manejador_SIGINT(int senial){
 
 int main() {
 	signal(SIGINT, manejador_SIGINT);
+	alarm(5);
 	while(1)
 		pause();
 	return 0;
