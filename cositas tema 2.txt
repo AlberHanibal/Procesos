@@ -28,3 +28,16 @@ int main() {
 }
 
 
+
+llaves
+
+include <stdio.h>
+include <sys/ipc.h>
+
+int main() {
+	key_t llave
+	llave = ftok("fichero", 'una letra');
+	printf("La llave es %d", llave);
+	return 0;
+
+}
