@@ -19,7 +19,7 @@ public class Main {
 
 		// Create a SeachTask and 10 Thread objects with this Runnable
 		SearchTask searchTask=new SearchTask(result);
-		for (int i=0; i<5; i++) {
+		for (int i=0; i<10; i++) {
 			Thread thread=new Thread(threadGroup, searchTask);
 			thread.start();
 			try {

@@ -24,7 +24,7 @@ public class CleanerTask extends Thread {
 	public CleanerTask(Deque<Event> deque) {
 		this.deque = deque;
 		// Establish that this is a Daemon Thread
-		setDaemon(true);
+		//setDaemon(true);
 	}
 
 
@@ -34,6 +34,7 @@ public class CleanerTask extends Thread {
 	@Override
 	public void run() {
 		while (true) {
+			yield();
 			Date date = new Date();
 			clean(date);
 		}

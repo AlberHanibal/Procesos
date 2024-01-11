@@ -11,7 +11,6 @@ public class PrimeGenerator extends Thread{
 	@Override
 	public void run() {
 		long number=1L;
-		
 		// This bucle never ends... until is interrupted
 		while (true) {
 			if (isPrime(number)) {
@@ -33,10 +32,10 @@ public class PrimeGenerator extends Thread{
 	 * @return A boolean value. True if the number is prime, false if not.
 	 */
 	private boolean isPrime(long number) {
-		if (number <=2) {
+		if (number <=3) {
 			return true;
 		}
-		for (long i=2; i<number; i++){
+		for (long i=2; i<=Math.sqrt(number); i++){
 			if ((number % i)==0) {
 				return false;
 			}
