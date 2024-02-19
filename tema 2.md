@@ -88,3 +88,9 @@ Hay que terminar los ejecutores `shutdown()`
 [1](https://github.com/AlberHanibal/Procesos/blob/master/Tema%203/Ejercicios/E-PSP-T3-2.10/src/com/packtpub/java7/concurrency/chapter4/recipe1/core/Main.java) [2](https://github.com/AlberHanibal/Procesos/blob/master/Tema%203/Ejercicios/E-PSP-T3-2.10/src/com/packtpub/java7/concurrency/chapter4/recipe1/task/Server.java) [3](https://github.com/AlberHanibal/Procesos/blob/master/Tema%203/Ejercicios/E-PSP-T3-2.10/src/com/packtpub/java7/concurrency/chapter4/recipe1/task/Task.java) 
 
 ## 2.11 Tareas periódicas
+
+- **Tareas retardadas**: se ejecutan una vez después de un tiempo. Con `Callable y Runnable`, `schedule`
+[1](https://github.com/AlberHanibal/Procesos/blob/master/Tema%203/Ejercicios/E-PSP-T3-2.11-A/src/com/packtpub/java7/concurrency/chapter4/recipe7/core/Main.java) [2](https://github.com/AlberHanibal/Procesos/blob/master/Tema%203/Ejercicios/E-PSP-T3-2.11-A/src/com/packtpub/java7/concurrency/chapter4/recipe7/task/Task.java)
+
+- **Tareas periódicas**: se ejecutan después de un retardo y luego periódicamente cada x tiempo. `Runnable`, `scheduledAtFixedRate() y sheduledWithFixedDelay`
+[1](https://github.com/AlberHanibal/Procesos/blob/master/Tema%203/Ejercicios/E-PSP-T3-2.11-B/src/com/packtpub/java7/concurrency/chapter4/recipe8/core/Main.java) [2](https://github.com/AlberHanibal/Procesos/blob/master/Tema%203/Ejercicios/E-PSP-T3-2.11-B/src/com/packtpub/java7/concurrency/chapter4/recipe8/task/Task.java)
